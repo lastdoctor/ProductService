@@ -34,7 +34,15 @@ public class ProductController {
                 .quantity(createProductRestDto.getQuantity())
                 .title(createProductRestDto.getTitle())
                 .build();
-        return commandGateway.sendAndWait(createProductCommand);
+
+        String result;
+        try {
+            result = commandGateway.sendAndWait(createProductCommand);
+        } catch (Exception e) {
+            result = e.getLocalizedMessage();
+        }
+
+        return result;
     }
 
     @PutMapping
