@@ -1,4 +1,4 @@
-package com.appdeveloperblog.estore.productservice.rest;
+package com.appdeveloperblog.estore.productservice.command.rest;
 
 import lombok.Data;
 

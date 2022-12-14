@@ -1,4 +1,4 @@
-package com.appdeveloperblog.estore.productservice.rest;
+package com.appdeveloperblog.estore.productservice.command.rest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.appdeveloperblog.estore.productservice.rest;
+package com.appdeveloperblog.estore.productservice.command.rest;
 
-import com.appdeveloperblog.estore.productservice.commands.CreateProductCommand;
+import com.appdeveloperblog.estore.productservice.command.CreateProductCommand;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -10,20 +10,15 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
-public class ProductController {
+public class ProductCommandController {
 
     private final Environment env;
     private final CommandGateway commandGateway;
 
     @Autowired
-    public ProductController(Environment env, CommandGateway commandGateway) {
+    public ProductCommandController(Environment env, CommandGateway commandGateway) {
         this.env = env;
         this.commandGateway = commandGateway;
-    }
-
-    @GetMapping
-    public String getProduct() {
-        return "http get " + env.getProperty("local.server.port");
     }
 
     @PostMapping
@@ -43,15 +38,5 @@ public class ProductController {
         }
 
         return result;
-    }
-
-    @PutMapping
-    public String updateProduct() {
-        return "http put " + env.getProperty("local.server.port");
-    }
-
-    @DeleteMapping
-    public String deleteProduct() {
-        return "http delete " + env.getProperty("local.server.port");
     }
 }

@@ -1,4 +1,4 @@
-package com.appdeveloperblog.estore.productservice.commands;
+package com.appdeveloperblog.estore.productservice.command;
 
 import com.appdeveloperblog.estore.productservice.core.events.ProductCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
