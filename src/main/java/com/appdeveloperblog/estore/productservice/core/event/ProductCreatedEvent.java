@@ -1,4 +1,4 @@
-package com.appdeveloperblog.estore.productservice.core.events;
+package com.appdeveloperblog.estore.productservice.core.event;
 
 import lombok.Data;
 

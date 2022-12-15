@@ -2,7 +2,7 @@ package com.appdeveloperblog.estore.productservice.command;
 
 import com.appdeveloperblog.estore.productservice.core.data.ProductEntity;
 import com.appdeveloperblog.estore.productservice.core.data.ProductRepository;
-import com.appdeveloperblog.estore.productservice.core.events.ProductCreatedEvent;
+import com.appdeveloperblog.estore.productservice.core.event.ProductCreatedEvent;
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
