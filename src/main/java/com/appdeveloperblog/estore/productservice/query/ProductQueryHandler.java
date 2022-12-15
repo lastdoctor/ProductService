@@ -1,7 +1,7 @@
 package com.appdeveloperblog.estore.productservice.query;
 
 import com.appdeveloperblog.estore.productservice.core.data.ProductEntity;
-import com.appdeveloperblog.estore.productservice.core.data.ProductRepositoty;
+import com.appdeveloperblog.estore.productservice.core.data.ProductRepository;
 import com.appdeveloperblog.estore.productservice.query.rest.ProductRestModel;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
@@ -12,15 +12,15 @@ import java.util.List;
 
 @Component
 public class ProductQueryHandler {
-    private final ProductRepositoty productRepositoty;
+    private final ProductRepository productRepository;
 
-    public ProductQueryHandler(ProductRepositoty productRepositoty) {
-        this.productRepositoty = productRepositoty;
+    public ProductQueryHandler(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @QueryHandler
     public List<ProductRestModel> findProducts(FindProductsQuery query) {
-        List<ProductEntity> productEntities = productRepositoty.findAll();
+        List<ProductEntity> productEntities = productRepository.findAll();
         List<ProductRestModel> productRestModels = new ArrayList<>();
         productEntities.stream().forEach(productEntity -> {
                     ProductRestModel productRestModel = new ProductRestModel();
@@ -28,7 +28,6 @@ public class ProductQueryHandler {
                     productRestModels.add(productRestModel);
                 }
         );
-        System.out.println(productRestModels);
         return productRestModels;
     }
 }

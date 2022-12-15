@@ -1,7 +1,7 @@
-package com.appdeveloperblog.estore.productservice.query;
+package com.appdeveloperblog.estore.productservice.command;
 
 import com.appdeveloperblog.estore.productservice.core.data.ProductEntity;
-import com.appdeveloperblog.estore.productservice.core.data.ProductRepositoty;
+import com.appdeveloperblog.estore.productservice.core.data.ProductRepository;
 import com.appdeveloperblog.estore.productservice.core.events.ProductCreatedEvent;
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.beans.BeanUtils;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductEventHandler {
-    private final ProductRepositoty productRepositoty;
+    private final ProductRepository productRepository;
 
-    public ProductEventHandler(ProductRepositoty productRepositoty) {
-        this.productRepositoty = productRepositoty;
+    public ProductEventHandler(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @EventHandler
     public void on(ProductCreatedEvent event) {
         ProductEntity productEntity = new ProductEntity();
         BeanUtils.copyProperties(event, productEntity);
-        productRepositoty.save(productEntity);
+        productRepository.save(productEntity);
     }
 }
