@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Data
 public class CreateProductRestDto {
-    @NotBlank(message = "title is required")
+//    @NotBlank(message = "title is required")
     private String title;
     @Min(value = 1, message = "price cannot be lower than 1")
     private BigDecimal price;
